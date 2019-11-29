@@ -30,7 +30,7 @@ public class WaitPanel : BasePanel
     {
         base.Open();
         //mediaPlayer.Play();
-        mediaPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder, "AVProVideoSamples/BigBuckBunny_720p30.mp4");
+        mediaPlayer.OpenVideoFromFile(MediaPlayer.FileLocation.RelativeToStreamingAssetsFolder, "AVProVideoSamples/三屏联动-首页.mp4");
     }
 
     public override void Hide()

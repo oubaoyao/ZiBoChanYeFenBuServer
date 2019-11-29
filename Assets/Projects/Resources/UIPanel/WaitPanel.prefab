@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: AVProVideoSamples/BigBuckBunny_720p30.mp4
+  m_VideoPath: "AVProVideoSamples/\u4E09\u5C4F\u8054\u52A8-\u9996\u9875.mp4"
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 1
@@ -301,3 +301,5 @@ MonoBehaviour:
   openTweenTime: 0.5
   hideTweenTime: 0.5
   IsOpen: 1
+  mediaPlayer: {fileID: 1432764209217469372}
+  button: {fileID: 1432764209217469375}
