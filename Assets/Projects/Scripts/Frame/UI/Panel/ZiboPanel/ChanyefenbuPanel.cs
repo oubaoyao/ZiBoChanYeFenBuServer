@@ -61,7 +61,6 @@ public class ChanyefenbuPanel : BasePanel
         {
             Current_MediaPlayer.Control.Seek(Current_Slider.value * Current_MediaPlayer.Info.GetDurationMs());
             UdpSeverLink.Instance.SendMsgToClient(Current_Slider.value);
-            Debug.Log("1111");
         }
     }
 
@@ -173,7 +172,7 @@ public class ChanyefenbuPanel : BasePanel
                     Current_MediaPlayer.Play();
                     UdpSeverLink.Instance.SendMsgToClient(Control_Order.play.ToString());
                 }
-                Current_Slider.transform.GetComponent<CanvasGroup>().DOFillAlpha(1, 0.5f);
+                Current_Slider.transform.GetComponent<CanvasGroup>().alpha = 1;
                 Current_Slider.transform.GetComponent<CanvasGroup>().blocksRaycasts = true;
                 button.gameObject.GetComponent<Image>().sprite = VideoButtonSprite[1];
             }
