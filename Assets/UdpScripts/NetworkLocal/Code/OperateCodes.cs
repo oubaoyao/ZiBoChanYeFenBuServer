@@ -18,4 +18,5 @@ public enum OperateCodes : byte
 public enum ParmaterCodes : byte
 {
     index,
+    index_float,
 }

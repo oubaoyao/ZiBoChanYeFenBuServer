@@ -47,5 +47,13 @@ namespace MTFrame.MTEvent
         /// 返回待机视频
         /// </summary>
         back,
+        /// <summary>
+        /// 暂停视频
+        /// </summary>
+        pause,
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        play,
     }
 }

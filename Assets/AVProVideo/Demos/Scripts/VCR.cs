@@ -160,6 +160,7 @@ namespace RenderHeads.Media.AVProVideo.Demos
 		{
 			if (PlayingPlayer && _videoSeekSlider && _videoSeekSlider.value != _setVideoSeekSliderValue)
 			{
+                Debug.Log("1111");
 				PlayingPlayer.Control.Seek(_videoSeekSlider.value * PlayingPlayer.Info.GetDurationMs());
 			}
 		}
@@ -172,6 +173,7 @@ namespace RenderHeads.Media.AVProVideo.Demos
 				if( _wasPlayingOnScrub )
 				{
 					PlayingPlayer.Control.Pause();
+                    Debug.Log("2222");
 //					SetButtonEnabled( "PauseButton", false );
 //					SetButtonEnabled( "PlayButton", true );
 				}
@@ -184,10 +186,10 @@ namespace RenderHeads.Media.AVProVideo.Demos
 			{
 				PlayingPlayer.Control.Play();
 				_wasPlayingOnScrub = false;
-
-//				SetButtonEnabled( "PlayButton", false );
-//				SetButtonEnabled( "PauseButton", true );
-			}			
+                Debug.Log("3333");
+                //				SetButtonEnabled( "PlayButton", false );
+                //				SetButtonEnabled( "PauseButton", true );
+            }			
 		}
 
 		public void OnAudioVolumeSlider()
@@ -290,38 +292,40 @@ namespace RenderHeads.Media.AVProVideo.Demos
 
 				_setVideoSeekSliderValue = d;
 				_videoSeekSlider.value = d;
+                Debug.Log("1111");
 
-				if (_bufferedSliderRect != null)
-				{
-					float t1 = 0f;
-					float t2 = PlayingPlayer.Control.GetBufferingProgress();
-					if (t2 <= 0f)
-					{
-						if (PlayingPlayer.Control.GetBufferedTimeRangeCount() > 0)
-						{
-							PlayingPlayer.Control.GetBufferedTimeRange(0, ref t1, ref t2);
-							t1 /= PlayingPlayer.Info.GetDurationMs();
-							t2 /= PlayingPlayer.Info.GetDurationMs();
-						}
-					}
+				//if (_bufferedSliderRect != null)
+				//{
+				//	float t1 = 0f;
+				//	float t2 = PlayingPlayer.Control.GetBufferingProgress();
+				//	if (t2 <= 0f)
+				//	{
+				//		if (PlayingPlayer.Control.GetBufferedTimeRangeCount() > 0)
+				//		{
+				//			PlayingPlayer.Control.GetBufferedTimeRange(0, ref t1, ref t2);
+				//			t1 /= PlayingPlayer.Info.GetDurationMs();
+				//			t2 /= PlayingPlayer.Info.GetDurationMs();
+				//		}
+				//	}
 
-					Vector2 anchorMin = Vector2.zero;
-                	Vector2 anchorMax = Vector2.one;
+				//	Vector2 anchorMin = Vector2.zero;
+    //            	Vector2 anchorMax = Vector2.one;
 	
-					if (_bufferedSliderImage != null &&
-						_bufferedSliderImage.type == Image.Type.Filled)
-					{
-						_bufferedSliderImage.fillAmount = d;
-					}
-					else
-					{   
-						anchorMin[0] = t1;   
-						anchorMax[0] = t2;
-					}
+				//	if (_bufferedSliderImage != null &&
+				//		_bufferedSliderImage.type == Image.Type.Filled)
+				//	{
+				//		_bufferedSliderImage.fillAmount = d;
+				//	}
+				//	else
+				//	{   
+				//		anchorMin[0] = t1;   
+				//		anchorMax[0] = t2;
+				//	}
                 	
-                	_bufferedSliderRect.anchorMin = anchorMin;
-                	_bufferedSliderRect.anchorMax = anchorMax;
-				}
+    //            	_bufferedSliderRect.anchorMin = anchorMin;
+    //            	_bufferedSliderRect.anchorMax = anchorMax;
+    //                Debug.Log("333");
+				//}
 			}			
 		}
 

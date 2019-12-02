@@ -59,6 +59,14 @@ public class UdpSeverLink : MonoBehaviour
         Debug.Log("发送信息给客户端:" + msg);
     }
 
+    public void SendMsgToClient(float msg)
+    {
+        OperationResponse response = OperationResponseExtend.GetOperationResponse((byte)OperateCodes.Game);
+        response.AddParemater((byte)ParmaterCodes.index_float, msg);
+        localServerEngine?.SendData(response);
+        Debug.Log("发送信息给客户端:" + msg);
+    }
+
     ///// <summary>
     ///// 默认事件类型GenericEventEnumType.Message，发送信息给状态类，让状态类的监听函数进行相应的操作(发送的信息为字符串的时候才能使用该函数)
     ///// </summary>
