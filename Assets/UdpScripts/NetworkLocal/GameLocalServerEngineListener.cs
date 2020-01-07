@@ -49,21 +49,6 @@ public class GameLocalServerEngineListener : GameLocalEngine
     protected override void OnPlayerDisconnectedListener(User user, IPEndPoint iPEndPoint, LiteLocal liteLocal)
     {
         base.OnPlayerDisconnectedListener(user, iPEndPoint, liteLocal);
-        //如果是一个客户端就使其为空，如果是链表就删除
-        //if (client.EndPoint.ToString() == iPEndPoint.ToString())
-        //{
-        //    UnityEngine.Debug.Log("去除iPEndPoint===" + iPEndPoint);
-        //    client = null;
-        //}
-
-        //foreach (NetPeer item in client)
-        //{
-        //    if (item.EndPoint == iPEndPoint)
-        //    {
-        //        client.Remove(item);
-        //        //UnityEngine.Debug.Log("剩余客户端个数===" + client.Count);
-        //    }
-        //}
         for (int i = 0; i < client.Count; i++)
         {
             if (client[i].EndPoint.ToString() == iPEndPoint.ToString())

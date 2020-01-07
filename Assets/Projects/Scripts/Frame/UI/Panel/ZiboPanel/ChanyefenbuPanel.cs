@@ -19,7 +19,7 @@ public class ChanyefenbuPanel : BasePanel
 
     public Slider[] SliderGroup;
 
-    private string[] VideoName = { "AVProVideoSamples/AlphaLeftRight.mp4", "AVProVideoSamples/SampleSphere.mp4", "AVProVideoSamples/BigBuckBunny_360p30.mp4", "AVProVideoSamples/BigBuckBunny_720p30.mp4" };
+    private string[] VideoName = { "AVProVideoSamples/公共服务.mp4", "AVProVideoSamples/产业聚集.mp4", "AVProVideoSamples/文旅融创.mp4" };
 
     public MediaPlayer Current_MediaPlayer = null;
     public Slider Current_Slider = null;
