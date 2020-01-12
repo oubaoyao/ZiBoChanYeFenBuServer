@@ -9,6 +9,12 @@ public class WaitPanel : BasePanel
 {
     public Button button;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        Input.multiTouchEnabled = false;
+    }
+
     public override void InitFind()
     {
         base.InitFind();

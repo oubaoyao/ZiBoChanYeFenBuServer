@@ -27,6 +27,8 @@ public class ChanyefenbuPanel : BasePanel
     private bool _wasPlayingOnScrub;
     private float _setVideoSeekSliderValue;
 
+    private float WaitTime = 240.0f;
+
     public override void InitFind()
     {
         base.InitFind();
@@ -89,10 +91,6 @@ public class ChanyefenbuPanel : BasePanel
     {
         switch (arg1)
         {
-            case MediaPlayerEvent.EventType.ReadyToPlay:
-                break;
-            case MediaPlayerEvent.EventType.Started:
-                break;
             case MediaPlayerEvent.EventType.FinishedPlaying:
                 VideoPlayComplete(arg1);
                 break;
@@ -106,13 +104,16 @@ public class ChanyefenbuPanel : BasePanel
         Current_MediaPlayer = null;
         Current_Slider = null;
         InitVideo(true);
+        TimeTool.Instance.Remove(TimeDownType.NoUnityTimeLineImpact, ReturnWaitPanel);
+        TimeTool.Instance.AddDelayed(TimeDownType.NoUnityTimeLineImpact, WaitTime, ReturnWaitPanel);
     }
 
     public override void Open()
     {
         base.Open();
         EventManager.AddUpdateListener(UpdateEventEnumType.Update, "Aupdate", Aupdate);
-        TimeTool.Instance.AddDelayed(TimeDownType.NoUnityTimeLineImpact, 120, ReturnWaitPanel);
+        TimeTool.Instance.Remove(TimeDownType.NoUnityTimeLineImpact, ReturnWaitPanel);
+        TimeTool.Instance.AddDelayed(TimeDownType.NoUnityTimeLineImpact, WaitTime, ReturnWaitPanel);
     }
 
     private void Aupdate(float timeProcess)
@@ -127,15 +128,15 @@ public class ChanyefenbuPanel : BasePanel
             Current_Slider.value = d;
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             TimeTool.Instance.Remove(TimeDownType.NoUnityTimeLineImpact, ReturnWaitPanel);
         }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            TimeTool.Instance.AddDelayed(TimeDownType.NoUnityTimeLineImpact, 120, ReturnWaitPanel);
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    TimeTool.Instance.AddDelayed(TimeDownType.NoUnityTimeLineImpact, 120, ReturnWaitPanel);
+        //}
     }
 
     public override void Hide()
@@ -175,6 +176,7 @@ public class ChanyefenbuPanel : BasePanel
                 Current_Slider.transform.GetComponent<CanvasGroup>().alpha = 1;
                 Current_Slider.transform.GetComponent<CanvasGroup>().blocksRaycasts = true;
                 button.gameObject.GetComponent<Image>().sprite = VideoButtonSprite[1];
+                TimeTool.Instance.Remove(TimeDownType.NoUnityTimeLineImpact, ReturnWaitPanel);
             }
             else
             {
@@ -184,6 +186,8 @@ public class ChanyefenbuPanel : BasePanel
                 button.gameObject.GetComponent<Image>().sprite = VideoButtonSprite[0];
                 Current_Slider.transform.GetComponent<CanvasGroup>().DOFillAlpha(0, 0.5f);
                 Current_Slider.transform.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                TimeTool.Instance.Remove(TimeDownType.NoUnityTimeLineImpact, ReturnWaitPanel);
+                TimeTool.Instance.AddDelayed(TimeDownType.NoUnityTimeLineImpact, WaitTime, ReturnWaitPanel);
             }   
         });
     }

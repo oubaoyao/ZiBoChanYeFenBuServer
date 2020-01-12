@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 22f8135619acaec4ca395ede19400e56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02c6e6434e29b3449870123bb7e1cea7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -136,8 +136,7 @@ MonoBehaviour:
   openTweenTime: 0.5
   hideTweenTime: 0.5
   IsOpen: 1
-  mediaPlayer: {fileID: 0}
-  button: {fileID: 0}
+  button: {fileID: 543574962365554565}
 --- !u!1 &7542126254365935831
 GameObject:
   m_ObjectHideFlags: 0
